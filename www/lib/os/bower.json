@@ -1,0 +1,11 @@
+{
+ "name": "os",
+ "version": "3.46.1",
+ "main": "os.min.js",
+ "description": "'os' nodejs core module browserify-ied with `--standalone os`. Should support all module systems (commonjs, AMD & `window.os`) - check browserify docs.",
+ "keywords": [
+  "nodejs",
+  "browserify",
+  "os"
+ ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "os",
+  "version": "3.46.1",
+  "main": "os.min.js",
+  "description": "'os' nodejs core module browserify-ied with `--standalone os`. Should support all module systems (commonjs, AMD & `window.os`) - check browserify docs.",
+  "keywords": [
+    "nodejs",
+    "browserify",
+    "os"
+  ],
+  "homepage": "https://github.com/anodynos/node2web_os",
+  "_release": "3.46.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "3.46.1",
+    "commit": "5d34cd04c1c15bb477f7259ad204467c97e8b218"
+  },
+  "_source": "git://github.com/anodynos/node2web_os.git",
+  "_target": "~3.46.1",
+  "_originalSource": "os",
+  "_direct": true
+}

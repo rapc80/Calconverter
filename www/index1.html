@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width height=device-height">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-app="starter">
+
+    <ion-pane>
+      <ion-header-bar class="bar-stable bar-assertive" style="text-align:center">
+	  <style>
+	  div.cal{
+	           position:fixed;
+			   z-index: 1;
+	  
+	  }
+
+	  #card1{
+               display:none;
+                z-index: -1;			   
+	  }
+	  #card2{
+	          display:none;
+			  z-index: -1;
+	  }
+	  #card3{
+	          display:none;
+			  z-index: -1;
+			  }
+	  </style>
+
+        <h1 class="title" style="text-align:center">CalConverter</h1>
+	
+      </ion-header-bar>
+      <ion-content>
+	     <div class="card" id="disp" style="height:50px">
+		  <h2 style="text-align:right">
+		    <div id="cal">
+			   
+			</div>
+		  </h2>
+		</div>
+		
+		  <div class="card" id="card" display="inline" style="height:1000%">
+		  <div class="button-bar">
+		      <a class="button button-large button-assertive" onclick="disp1()">1</a>
+			  <a class="button button-large button-assertive" onclick="disp2()">2</a>
+			  <a class="button button-large button-assertive" onclick="disp3()">3</a>
+			  <a class="button button-large button-assertive" onclick="dispplus()">+</a>
+			  
+			 </div> 
+			  <div class="button-bar">
+		 
+		      <a class="button button-large button-assertive" onclick="disp4()">4</a>
+			  <a class="button button-large button-assertive" onclick="disp5()">5</a>
+			  <a class="button button-large button-assertive" onclick="disp6()">6</a>
+			  <a class="button button-large button-assertive" onclick="dispminus()">-</a>
+			  </div>
+			  <div class="button-bar">
+		 
+		      <a class="button button-large button-assertive" onclick="disp7()">7</a>
+			  <a class="button button-large button-assertive" onclick="disp8()">8</a>
+			  <a class="button button-large button-assertive" onclick="disp9()">9</a>
+			  <a class="button button-large button-assertive" onclick="dispproduct()" >*</a>
+			  </div>
+			  <div class="button-bar">
+		  
+		      <a class="button button-large button-assertive" onclick="dispAC()">AC</a>
+			  <a class="button button-large button-assertive" onclick="dispzero()">0</a>
+			  <a class="button button-large button-assertive" onclick="dispdel()">DEL</a>
+			  <a class="button button-large button-assertive" onclick="dispdivide()">/</a>
+               </div>
+			  <div class="button-bar">
+		  
+		      <a class="button button-large button-assertive" onclick="document.getElementById('card').style.display='none';document.getElementById('card1').style.display='inline';">CONVERTER</a>
+		      <a class="button button-large button-assertive" onclick="disppoint()">.</a>
+			  <a class="button button-large button-assertive" onclick="dispequal()">=</a>
+		  </div>
+		  </div>
+		   <div class="list" id="card1">
+		   <div class="button-bar">
+		   <a class="button button-large button-assertive" onclick="document.getElementById('card1').style.display='none';document.getElementById('card').style.display='inline';">HOME</a>
+		      <a class="button button-large button-assertive" onclick="document.getElementById('card1').style.display='none';document.getElementById('card').style.display='inline';">BACK</a>
+			  </div>
+		  <ul class="list">
+		      <a class="item" style="background-color:#DC381F" onclick="document.getElementById('card1').style.display='none';document.getElementById('card2').style.display='inline';">VOLUME</a>
+			  <a class="item" style="background-color:#DC381F" onclick="document.getElementById('card1').style.display='none';document.getElementById('card3').style.display='inline';">AREA</a>
+			  <a class="item" style="background-color:#DC381F" href="volume.html">DISTANCE</a>
+			  <a class="item" style="background-color:#DC381F" href="volume.html">POWER</a>
+		      <a class="item" style="background-color:#DC381F" href="volume.html">ENERGY</a>
+			  <a class="item" style="background-color:#DC381F" href="volume.html">WEIGHT</a>
+			  <a class="item" style="background-color:#DC381F" href="volume.html">TEMPERATURE</a>
+			  <a class="item" style="background-color:#DC381F" href="volume.html">DENSITY</a>
+		      <a class="item" style="background-color:#DC381F" href="volume.html">ELECTROMAGNET</a>
+		      <a class="item" style="background-color:#F88017" onclick="document.getElementById('card1').style.display='none';document.getElementById('card').style.display='inline';">BACK</a>
+		     
+		  </ul>
+		  </div>
+		  
+		  	   <div class="list" id="card2" style="background-color:red;">
+			    <div class="button-bar">
+		   <a class="button button-large button-assertive" onclick="document.getElementById('card2').style.display='none';document.getElementById('card').style.display='inline';">HOME</a>
+		      <a class="button button-large button-assertive" onclick="document.getElementById('card2').style.display='none';document.getElementById('card1').style.display='inline';">BACK</a>
+			  </div>
+		  <ul class="list">
+		      <a class="item" style="background-color:#DC381F" onclick="dispcucmtocum()">Cubic Centimeter to Cubic Meter</a>
+			  <a class="item" style="background-color:#DC381F" onclick="dispcucmtocuin()">Cubic Centimeter to Cubic Inch</a>
+			  <a class="item" style="background-color:#DC381F" onclick="dispcumtocucm()">Cubic Meter to Cubic CentiMeter</a>
+			  <a class="item" style="background-color:#DC381F" onclick="dispcumtocuft()">Cubic Meter to Cubic Feet</a>
+			  <a class="item" style="background-color:#DC381F" onclick="dispcumtocuin()">Cubic Meter to Cubic Inch</a>
+			  <a class="item" style="background-color:#DC381F" onclick="dispcumtogal()">Cubic Meter to US Gallon</a>
+			  <a class="item" style="background-color:#DC381F" onclick="dispcuintocuft()">Cubic Inch to Cubic Feet </a>
+			  <a class="item" style="background-color:#DC381F" onclick="dispcuintocum()">Cubic Inch to Cubic Meter</a>
+			  <a class="item" style="background-color:#DC381F" onclick="dispcuintocucm()">Cubic Inch to Cubic Centimeter</a>
+			  <a class="item" style="background-color:#DC381F" onclick="dispcufttocuin()">Cubic Feet to Cubic Inch</a>
+		      <a class="item" style="background-color:#DC381F" onclick="dispcufttocum()">Cubic feet to Cubic Meter</a>
+			  <a class="item" style="background-color:#DC381F" onclick="dispgaltocum()"> US Gallon to Cubic Meter</a>
+              <a class="item" style="background-color:#DC381F" onclick="dispgaltocuf()">US Gallon to Cubic feet</a>			  
+		      <a class="item" style="background-color:#151B8D" onclick="document.getElementById('card2').style.display='none';document.getElementById('card1').style.display='inline';">BACK</a>
+		     
+		  </ul>
+		  </div>
+		  
+		   <div class="list" id="card3" style="background-color:red">
+		    <div class="button-bar">
+		   <a class="button button-large button-assertive" onclick="document.getElementById('card3').style.display='none';document.getElementById('card').style.display='inline';">HOME</a>
+		      <a class="button button-large button-assertive" onclick="document.getElementById('card3').style.display='none';document.getElementById('card1').style.display='inline';">BACK</a>
+			  </div>
+		  <ul class="list" >
+		      <a class="item" style="background-color:#DC381F" onclick="dispsqmtoac()">Square Meter to Acre</a>
+			  <a class="item" style="background-color:#DC381F" onclick="dispsqmtosqy()">Square Meter to Square Yard</a>
+			  <a class="item" style="background-color:#DC381F" onclick="dispsqmtosqcm()">Square meter to Square cm</a>
+			  <a class="item" style="background-color:#DC381F" onclick="dispsqmtohec()">Square meter to Hectare</a>
+			  <a class="item" style="background-color:#DC381F" onclick="dispsqmtoscm()">Square meter to Squre Centimeter</a>
+			  <a class="item" style="background-color:#DC381F" onclick="dispactosqm()">Acre to Square Meter</a>
+			  <a class="item" style="background-color:#DC381F" onclick="dispatosqy()">Acre to Square Yard</a>
+			  <a class="item" style="background-color:#DC381F" onclick="dispactohec()">Acre to Hectare</a>
+			  <a class="item" style="background-color:#DC381F" onclick="dispsqytoa()">Square Yard to Acre </a>
+			  <a class="item" style="background-color:#DC381F" onclick="dispsytosqm()">Square Yard to Square Meter</a>
+			  <a class="item" style="background-color:#DC381F" onclick="dispsytohec()">Square Yard to Hectare</a>
+		      <a class="item" style="background-color:#DC381F" onclick="disphectoac()">Hectare to Acre</a> 
+			  <a class="item" style="background-color:#DC381F" onclick="disphectosqy()">Hectare to Square Yard</a>
+			  <a class="item" style="background-color:#DC381F" onclick="disphectosqm()">Hectare to Suare Meter</a>
+		      <a class="item" style="background-color:#DC381F" onclick="dispaqkmtosqmi()">Square KM to Square Mile</a>
+			  <a class="item" style="background-color:#DC381F" onclick="dispsqmitoskm()">Square Mile to Square Km</a>
+			  <a class="item" style="background-color:#DC381F" onclick="dispscmtosqm()"> Square Cm to Square Meter</a>
+		      <a class="item" style="background-color:#151B8D" onclick="document.getElementById('card3').style.display='none';document.getElementById('card1').style.display='inline';">BACK</a>
+		     
+		  </ul>
+		  </div>
+		  
+	
+		  	  
+		  
+	  
+      </ion-content>
+    </ion-pane>
+	<script>
+	
+	    function disp1(){
+	  document.getElementById("cal").innerHTML+=1;
+	  }
+      function disp2(){
+	  document.getElementById("cal").innerHTML+=2;
+	  }
+	   function disp3(){
+	  document.getElementById("cal").innerHTML+=3;
+	  }
+	   function disp4(){
+	  document.getElementById("cal").innerHTML+=4;
+	  }
+	   function disp5(){
+	  document.getElementById("cal").innerHTML+=5;
+	  }
+	   function disp6(){
+	  document.getElementById("cal").innerHTML+=6;
+	  }
+	   function disp7(){
+	  document.getElementById("cal").innerHTML+=7;
+	  }
+	   function disp8(){
+	  document.getElementById("cal").innerHTML+=8;
+	  }
+	   function disp9(){
+	  document.getElementById("cal").innerHTML+=9;
+	  }
+	    function dispzero(){
+	  document.getElementById("cal").innerHTML+=0;
+	  }
+	    function dispAC(){
+	  document.getElementById("cal").innerHTML="";
+	  }
+	    function dispplus(){
+	  document.getElementById("cal").innerHTML+="+";
+	  }
+	     function dispminus(){
+	  document.getElementById("cal").innerHTML+="-";
+	  }
+	     function dispproduct(){
+	  document.getElementById("cal").innerHTML+="*";
+	  }
+	     function dispdivide(){
+	  document.getElementById("cal").innerHTML+="/";
+	  }
+	       function disppoint(){
+	  document.getElementById("cal").innerHTML+=".";
+	  }
+	    function dispequal(){
+	  document.getElementById("cal").innerHTML=eval(document.getElementById("cal").innerHTML);
+	  }
+	          function dispdel(){
+	  var num=document.getElementById("cal").innerHTML;
+	  var numlen=num.length-1;
+	  var newnum=num.substring(0,numlen);
+	  document.getElementById("cal").innerHTML=newnum;
+	  }
+	  function dispcucmtocum(){
+	   var e=document.getElementById("cal").innerHTML;
+	   document.getElementById("cal").innerHTML=e/1000000+"CUM";
+	  }
+       function dispcumtocucm() {
+	   var e=document.getElementById("cal").innerHTML;
+	   document.getElementById("cal").innerHTML=e*1000000+"cucm"; 
+	   } 
+
+       function dispcuintocuft(){
+	   var e=document.getElementById("cal").innerHTML;
+	   document.getElementById("cal").innerHTML=e*0.000578704+"cuft";
+	   
+	   }	
+
+       function dispcufttocuin(){
+	   
+	    var e=document.getElementById("cal").innerHTML;
+	   document.getElementById("cal").innerHTML=e*1728+"cuin";
+	   
+	   }	   
+		function dispcufttocum(){
+		  var e=document.getElementById("cal").innerHTML;
+	   document.getElementById("cal").innerHTML=e*0.0283168+"cum";
+		}
+       
+        function dispcumtocuft(){
+		  var e=document.getElementById("cal").innerHTML;
+	   document.getElementById("cal").innerHTML=e*35.3147+"cuft";	
+		}
+
+        function dispcuintocum(){
+		
+		  var e=document.getElementById("cal").innerHTML;
+	   document.getElementById("cal").innerHTML=e*1.63871e-5+"cum";
+		
+		}	
+
+        function dispcumtocuin(){
+		  var e=document.getElementById("cal").innerHTML;
+	   document.getElementById("cal").innerHTML=e*61023.7+"cuin";
+		
+		}	
+
+        function dispcuintocucm(){
+		  var e=document.getElementById("cal").innerHTML;
+	   document.getElementById("cal").innerHTML=e*16.387064+"cucm";
+		
+		}	
+
+       function dispcucmtocuin(){
+	   var e=document.getElementById("cal").innerHTML;
+	   document.getElementById("cal").innerHTML=e*0.0610237441+"cuin";
+	   
+	   }	
+
+       function dispgaltocum(){
+	   var e=document.getElementById("cal").innerHTML;
+	   document.getElementById("cal").innerHTML=e*0.00378541+"cum"; 
+	   }
+
+       function dispcumtogal(){
+	   var e=document.getElementById("cal").innerHTML;
+	   document.getElementById("cal").innerHTML=e*264.172+"gal"; 
+	   
+	   }
+	   
+	     function dispsqmtoac(){
+	   var e=document.getElementById("cal").innerHTML;
+	   document.getElementById("cal").innerHTML=e*0.000247105+"acres";
+	  }
+       function dispactosqm() {
+	   var e=document.getElementById("cal").innerHTML;
+	   document.getElementById("cal").innerHTML=e*4046.86+"sqm"; 
+	   } 
+
+       function dispsqytoa(){
+	   var e=document.getElementById("cal").innerHTML;
+	   document.getElementById("cal").innerHTML=e*0.000206612+"acres";
+	   
+	   }	
+
+       function dispatosqy(){
+	   
+	    var e=document.getElementById("cal").innerHTML;
+	   document.getElementById("cal").innerHTML=e*4840+"sqy";
+	   
+	   }	   
+		function disphectoac(){
+		  var e=document.getElementById("cal").innerHTML;
+	   document.getElementById("cal").innerHTML=e*2.47105+"acres";
+		}
+       
+        function dispactohec(){
+		  var e=document.getElementById("cal").innerHTML;
+	   document.getElementById("cal").innerHTML=e*0.404686+"hec";	
+		}
+
+        function dispsqmtosqy(){
+		
+		  var e=document.getElementById("cal").innerHTML;
+	   document.getElementById("cal").innerHTML=e*1.19599+"sqy";
+		
+		}	
+
+        function dispsytosqm(){
+		  var e=document.getElementById("cal").innerHTML;
+	   document.getElementById("cal").innerHTML=e*0.836127+"sqm";
+		
+		}	
+
+        function dispaqkmtosqmi(){
+		  var e=document.getElementById("cal").innerHTML;
+	   document.getElementById("cal").innerHTML=e*0.386102+"sqmiles";
+		
+		}	
+
+       function dispsqmitoskm(){
+	   var e=document.getElementById("cal").innerHTML;
+	   document.getElementById("cal").innerHTML=e*2.58999+"sqkm";
+	   
+	   }	
+
+       function dispscmtosqm(){
+	   var e=document.getElementById("cal").innerHTML;
+	   document.getElementById("cal").innerHTML=e*0.0001+"sqm"; 
+	   }
+
+       function dispsqmtosqcm(){
+	   var e=document.getElementById("cal").innerHTML;
+	   document.getElementById("cal").innerHTML=e*10000+"sqcm"; 
+	   
+	   }	
+	   function dispsytohec() {
+	   var e=document.getElementById("cal").innerHTML;
+	   document.getElementById("cal").innerHTML=e*8.36127e-5+"hectares";
+	   }
+	   
+	   function disphectosqy(){
+	   	   var e=document.getElementById("cal").innerHTML;
+	   document.getElementById("cal").innerHTML=e*11959.9+"sqy";
+	   
+	   
+	   }
+
+       	 function disphectosqm(){
+		 var e=document.getElementById("cal").innerHTML;
+	   document.getElementById("cal").innerHTML=e*10000+"sqm";
+		 } 
+
+        function dispsqmtohec(){
+		
+		var e=document.getElementById("cal").innerHTML;
+	   document.getElementById("cal").innerHTML=e*1e-4+"hetares";
+		
+		}		 
+		
+		function dispsqmtoscm(){
+			var e=document.getElementById("cal").innerHTML;
+	   document.getElementById("cal").innerHTML=e*10000+"sqcm";
+		
+		
+		}
+		function dispgaltocuf(){
+		var e=document.getElementById("cal").innerHTML;
+	   document.getElementById("cal").innerHTML=e*0.133681+"cuft";
+		
+		
+		}
+	</script>
+	
+	
+	
+  </body>
+</html>

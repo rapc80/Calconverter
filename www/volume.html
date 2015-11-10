@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-app="starter">
+
+    <ion-pane>
+      <ion-header-bar class="bar-stable bar-assertive" style="text-align:center">
+       <center> <h1 class="title" style="text-align:center">CalConverter</h1></center>
+	   
+	   
+      </ion-header-bar>
+      <ion-content>
+	     <div class="card" id="disp" style="height:50px" >
+		  <h2 style="text-align:right">
+		    <div id="cal">
+			
+			   
+			</div>
+		  </h2>
+		</div>
+				  <div class="list" id="card2" style="background-color:red">
+		  <ul class="list" >
+		      <a class="item" style="background-color:#DC381F" onclick="dispcucmtocum()">Cubic Centimeter to Cubic Meter</a>
+			  <a class="item" style="background-color:#DC381F" href="volume.html">Cubic Meter to Cubic CentiMeter</a>
+			  <a class="item" style="background-color:#DC381F" href="volume.html">Cubic Inch to Cubic Feet </a>
+			  <a class="item" style="background-color:#DC381F" href="volume.html">Cubic Feet to Cubic Inch</a>
+		      <a class="item" style="background-color:#DC381F" href="volume.html">Cubic feet to Cubic Meter</a>
+			  <a class="item" style="background-color:#DC381F" href="volume.html">Cubic Meter to Cubic Feet</a>
+			  <a class="item" style="background-color:#DC381F" href="volume.html">Cubic Inch to Cubic Meter</a>
+			  <a class="item" style="background-color:#DC381F" href="volume.html">Cubic Meter to Cubic Inch</a>
+		      <a class="item" style="background-color:#DC381F" href="volume.html">Cubic Inch to Cubic Centimeter</a>
+			  <a class="item" style="background-color:#DC381F" href="volume.html">Cubic Centimeter to Cubic Inch</a>
+			  <a class="item" style="background-color:#DC381F" href="volume.html">Gallon to Cubic Meter</a>
+			  <a class="item" style="background-color:#DC381F" href="volume.html">Cubic Meter to Gallon</a>
+		      <a class="item" style="background-color:#DC381F" href="conv.html">BACK</a>
+		     
+		  </ul>
+		  </div>
+		    
+      </ion-content>
+    </ion-pane>
+	<script>
+	    function dispcucmtocum(){
+	   var e=document.getElementById("cal").innerHTML;
+	   document.getElementById("cal").innerHTML=e/1000000;
+	  }
+      function disp2(){
+	  document.getElementById("cal").innerHTML+=2;
+	  }
+	   function disp3(){
+	  document.getElementById("cal").innerHTML+=3;
+	  }
+	   function disp4(){
+	  document.getElementById("cal").innerHTML+=4;
+	  }
+	   function disp5(){
+	  document.getElementById("cal").innerHTML+=5;
+	  }
+	   function disp6(){
+	  document.getElementById("cal").innerHTML+=6;
+	  }
+	   function disp7(){
+	  document.getElementById("cal").innerHTML+=7;
+	  }
+	   function disp8(){
+	  document.getElementById("cal").innerHTML+=8;
+	  }
+	   function disp9(){
+	  document.getElementById("cal").innerHTML+=9;
+	  }
+	    function dispzero(){
+	  document.getElementById("cal").innerHTML+=0;
+	  }
+	    function dispAC(){
+	  document.getElementById("cal").innerHTML="";
+	  }
+	    function dispplus(){
+	  document.getElementById("cal").innerHTML+="+";
+	  }
+	     function dispminus(){
+	  document.getElementById("cal").innerHTML+="-";
+	  }
+	     function dispproduct(){
+	  document.getElementById("cal").innerHTML+="*";
+	  }
+	     function dispdivide(){
+	  document.getElementById("cal").innerHTML+="/";
+	  }
+	       function disppoint(){
+	  document.getElementById("cal").innerHTML+=".";
+	  }
+	    function dispequal(){
+	  document.getElementById("cal").innerHTML=eval(document.getElementById("cal").innerHTML);
+	  }
+	          function dispdel(){
+	  var num=document.getElementById("cal").innerHTML;
+	  var numlen=num.length-1;
+	  var newnum=num.substring(0,numlen);
+	  document.getElementById("cal").innerHTML=newnum;
+	  }
+
+			
+			
+	</script>
+	
+	
+	
+  </body>
+</html>
